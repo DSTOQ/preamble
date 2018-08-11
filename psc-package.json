@@ -4,6 +4,7 @@
   "source": "git@github.com:Dstoq/package-sets.git",
   "depends": [
     "aff",
+    "either",
     "prelude"
   ]
 }
