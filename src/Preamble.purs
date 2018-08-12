@@ -6,6 +6,7 @@ module Preamble
   , type (\/)
   , fail
   , notImplemented
+  , swapEither
   ) where
 
 import Prelude
@@ -21,6 +22,9 @@ infixr 6 type DE.Either as \/
 
 fail :: ∀ m a . MonadThrow Error m => String -> m a
 fail = throwError <<< error
+
+swapEither :: ∀ a b. DE.Either a b -> DE.Either b a
+swapEither = DE.either DE.Right DE.Left
 
 notImplemented :: ∀ a . a
 notImplemented = unsafeCoerce "Not implemented"
